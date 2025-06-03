@@ -4182,3 +4182,11 @@ model_deployments:
       class_name: "helm.clients.huggingface_client.HuggingFaceClient"
       args:
         pretrained_model_name_or_path: vinai/PhoGPT-4B-Chat
+
+# DSPy client
+  - name: dspy
+    model_name: dspy
+    tokenizer_name: openai/o200k_base
+    max_sequence_length: 128000
+    client_spec:
+      class_name: "helm.clients.dspy_client.DSPyClient"
