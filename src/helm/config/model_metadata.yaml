@@ -4548,12 +4548,3 @@ models:
     num_parameters: 4000000000
     release_date: 2024-04-02
     tags: [TEXT_MODEL_TAG, LIMITED_FUNCTIONALITY_TEXT_MODEL_TAG, INSTRUCTION_FOLLOWING_MODEL_TAG]
-
-# DSPy client
-  - name: dspy
-    display_name: DSPy
-    description: A DSPy program running any LM currently supported by DSPy (https://dspy.ai/)
-    creator_organization_name: Stanford NLP
-    access: limited
-    release_date: 2023-08-14
-    tags: [TEXT_MODEL_TAG, FULL_FUNCTIONALITY_TEXT_MODEL_TAG]

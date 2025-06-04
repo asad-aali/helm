@@ -4,6 +4,7 @@ from helm.common.cache import CacheConfig
 from helm.tokenizers.tokenizer import Tokenizer
 from helm.common.cache import Cache
 from helm.common.request import Request, RequestResult, GeneratedOutput
+from helm.proxy.retry import NonRetriableException
 import dspy
 import os
 
@@ -37,14 +38,10 @@ class DSPyClient(Client):
             api_key (str): API key for the DSPy model provider.
         """
 
-        model_name = os.environ.get("DSPY_MODEL_NAME", None)
-        api_base = os.environ.get("DSPY_API_BASE", None)
-        api_key = os.environ.get("DSPY_API_KEY", None)
-
-        if (model_name == None) or (api_base == None) or (api_key == None):
-            raise Exception(
-                "\n\nPlease add the model name, api base, and api key for your DSPy program in your environment variables.\n\nexport DSPY_MODEL_NAME=YOUR_MODEL_NAME\nexport DSPY_API_BASE=YOUR_BASE_URL\nexport DSPY_API_KEY=YOUR_API_KEY\n\n"
-            )
+        if not model_name:
+            raise NonRetriableException("Please specify the model name in model_deployments.yaml")
+        if not api_key:
+            raise NonRetriableException("Please provide dspyApiKey key through credentials.conf")
 
         global lm, agent
         if lm == None:

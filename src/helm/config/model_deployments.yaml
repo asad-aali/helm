@@ -4150,10 +4150,11 @@ model_deployments:
       args:
         pretrained_model_name_or_path: vinai/PhoGPT-4B-Chat
 
-# DSPy client
-  - name: dspy
-    model_name: dspy
+  - name: dspy/gpt-4o-mini-2024-07-18
+    model_name: openai/gpt-4o-mini-2024-07-18
     tokenizer_name: openai/o200k_base
     max_sequence_length: 128000
     client_spec:
       class_name: "helm.clients.dspy_client.DSPyClient"
+      args:
+        api_base: null
