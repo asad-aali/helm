@@ -1185,3 +1185,39 @@ tokenizer_configs:
         pretrained_model_name_or_path: nicholasKluge/TeenyTinyLlama-460m
     end_of_text_token: "</s>"
     prefix_token: "<s>"
+
+  - name: dspy/claude-3-7-sonnet-20250219
+    model_name: anthropic/claude-3-7-sonnet-20250219
+    tokenizer_name: openai/o200k_base
+    max_sequence_length: 128000
+    client_spec:
+      class_name: "helm.clients.dspy_client.DSPyClient"
+      args:
+        api_base: http://0.0.0.0:4000
+
+  - name: dspy/gemini-2.0-flash-001
+    model_name: google/gemini-2.0-flash-001
+    tokenizer_name: openai/o200k_base
+    max_sequence_length: 128000
+    client_spec:
+      class_name: "helm.clients.dspy_client.DSPyClient"
+      args:
+        api_base: http://0.0.0.0:4001
+
+  - name: dspy/gpt-4o-2024-05-13
+    model_name: openai/gpt-4o-2024-05-13
+    tokenizer_name: openai/o200k_base
+    max_sequence_length: 128000
+    client_spec:
+      class_name: "helm.clients.dspy_client.DSPyClient"
+      args:
+        api_base: http://0.0.0.0:4002
+
+  - name: dspy/o3-mini-2025-01-31
+    model_name: openai/o3-mini-2025-01-31
+    tokenizer_name: openai/o200k_base
+    max_sequence_length: 128000
+    client_spec:
+      class_name: "helm.clients.dspy_client.DSPyClient"
+      args:
+        api_base: http://0.0.0.0:4003
